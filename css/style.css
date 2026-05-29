@@ -309,6 +309,61 @@ main { padding: 16px; max-width: 720px; margin: 0 auto; }
 
 .muted { color: var(--muted); }
 
+/* ---- Mes idées d'activités ---- */
+.my-ideas h2 { margin-bottom: 12px; }
+.idea-form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.idea-form input {
+  flex: 1 1 160px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+.idea-form select {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  font-size: 0.9rem;
+}
+.idea-form .primary-btn { flex: 0 0 auto; }
+
+.ideas-list { list-style: none; padding: 0; margin: 0; }
+.idea-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 8px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--primary);
+}
+.idea-item .i-body { flex: 1; }
+.idea-item .i-title { font-weight: 600; }
+.idea-item .i-meta { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+.idea-item .i-del {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.6;
+}
+.idea-item .i-del:hover { opacity: 1; }
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 20px 0;
+}
+
 /* ---- Modale ---- */
 .modal-overlay {
   position: fixed;

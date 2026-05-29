@@ -1,6 +1,7 @@
 /* Gestion du stockage local des événements */
 const Store = (() => {
   const KEY = 'mon-calendrier-events';
+  const IDEAS_KEY = 'mon-calendrier-ideas';
 
   function load() {
     try {
@@ -12,6 +13,36 @@ const Store = (() => {
 
   function save(events) {
     localStorage.setItem(KEY, JSON.stringify(events));
+  }
+
+  /* ---- Idées d'activités personnelles ---- */
+  function loadIdeas() {
+    try {
+      return JSON.parse(localStorage.getItem(IDEAS_KEY)) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveIdeas(ideas) {
+    localStorage.setItem(IDEAS_KEY, JSON.stringify(ideas));
+  }
+
+  function ideasAll() {
+    return loadIdeas().sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+  }
+
+  function ideaAdd(idea) {
+    const ideas = loadIdeas();
+    idea.id = 'idea_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
+    idea.createdAt = Date.now();
+    ideas.push(idea);
+    saveIdeas(ideas);
+    return idea;
+  }
+
+  function ideaRemove(id) {
+    saveIdeas(loadIdeas().filter(i => i.id !== id));
   }
 
   function all() {
@@ -59,5 +90,8 @@ const Store = (() => {
     return counts;
   }
 
-  return { all, byDate, get, upsert, remove, countsForMonth };
+  return {
+    all, byDate, get, upsert, remove, countsForMonth,
+    ideasAll, ideaAdd, ideaRemove
+  };
 })();

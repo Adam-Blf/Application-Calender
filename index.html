@@ -59,8 +59,29 @@
 
     <!-- Onglet Activités -->
     <section class="panel" id="tab-activities">
+      <!-- Mes idées d'activités personnelles -->
+      <section class="my-ideas">
+        <h2>💡 Mes idées d'activités</h2>
+        <form id="ideaForm" class="idea-form">
+          <input type="text" id="ideaInput" placeholder="Ex : Pique-nique au parc" required />
+          <select id="ideaCategory" aria-label="Catégorie de l'idée">
+            <option value="">Catégorie…</option>
+            <option value="🏛️ Culture">Culture</option>
+            <option value="🌳 Plein air">Plein air</option>
+            <option value="🍽️ Gastronomie">Gastronomie</option>
+            <option value="🎭 Sortie">Sortie</option>
+            <option value="🏃 Sport">Sport</option>
+            <option value="✈️ Voyage">Voyage</option>
+          </select>
+          <button type="submit" class="primary-btn">Ajouter</button>
+        </form>
+        <ul id="ideasList" class="ideas-list"></ul>
+      </section>
+
+      <hr class="divider" />
+
       <div class="activities-head">
-        <h2>Activités à proximité</h2>
+        <h2>Suggestions à proximité</h2>
         <select id="activityCategory" aria-label="Catégorie d'activité">
           <option value="tourism">Tourisme &amp; culture</option>
           <option value="leisure">Loisirs &amp; parcs</option>

@@ -275,6 +275,51 @@
     });
   }
 
+  /* ------------------ Mes idées d'activités ------------------ */
+  function renderIdeas() {
+    const list = $('ideasList');
+    const ideas = Store.ideasAll();
+    if (!ideas.length) {
+      list.innerHTML = '<li class="empty">Aucune idée enregistrée. Ajoutez-en une !</li>';
+      return;
+    }
+    list.innerHTML = ideas.map(idea => `
+      <li class="idea-item" data-id="${idea.id}">
+        <div class="i-body">
+          <div class="i-title">${escapeHtml(idea.title)}</div>
+          ${idea.category ? `<div class="i-meta">${escapeHtml(idea.category)}</div>` : ''}
+        </div>
+        <button class="a-add" data-action="plan">+ Agenda</button>
+        <button class="i-del" data-action="del" aria-label="Supprimer">🗑</button>
+      </li>`).join('');
+
+    list.querySelectorAll('.idea-item').forEach(li => {
+      const idea = Store.ideasAll().find(i => i.id === li.dataset.id);
+      li.querySelector('[data-action="plan"]').addEventListener('click', () => {
+        openModal(null, { title: idea.title, notes: idea.category || '' });
+      });
+      li.querySelector('[data-action="del"]').addEventListener('click', () => {
+        Store.ideaRemove(li.dataset.id);
+        renderIdeas();
+        toast('Idée supprimée');
+      });
+    });
+  }
+
+  function initIdeas() {
+    renderIdeas();
+    $('ideaForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const title = $('ideaInput').value.trim();
+      if (!title) return;
+      Store.ideaAdd({ title, category: $('ideaCategory').value });
+      $('ideaInput').value = '';
+      $('ideaCategory').value = '';
+      renderIdeas();
+      toast('Idée enregistrée');
+    });
+  }
+
   /* ------------------ Service worker ------------------ */
   function initServiceWorker() {
     if ('serviceWorker' in navigator) {
@@ -291,6 +336,7 @@
     initCalendar();
     initModal();
     initActivities();
+    initIdeas();
     $('refreshLocationBtn').addEventListener('click', initLocation);
     initServiceWorker();
     initLocation();
