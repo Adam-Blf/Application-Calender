@@ -1,7 +1,43 @@
-# 📅 Mon Calendrier — PWA
+# 📅 Mon Calendrier · PWA
+
+<!-- adam-badges:start -->
+[![commits](https://img.shields.io/github/commit-activity/t/Adam-Blf/Application-Calender?color=001329&label=commits&style=flat-square)](https://github.com/Adam-Blf/Application-Calender/commits)
+[![visites](https://hits.sh/github.com/Adam-Blf/Application-Calender.svg?style=flat-square&label=visites&color=001329)](https://hits.sh/github.com/Adam-Blf/Application-Calender/)
+[![last commit](https://img.shields.io/github/last-commit/Adam-Blf/Application-Calender?color=D4A437&style=flat-square&label=dernier%20push)](https://github.com/Adam-Blf/Application-Calender/commits)
+[![top language](https://img.shields.io/github/languages/top/Adam-Blf/Application-Calender?style=flat-square)](https://github.com/Adam-Blf/Application-Calender)
+[![license](https://img.shields.io/github/license/Adam-Blf/Application-Calender?style=flat-square&color=D4A437)](LICENSE)
+<!-- adam-badges:end -->
 
 Application web progressive (PWA) pour **enregistrer vos dates**, découvrir des
 **activités dans la grande ville la plus proche** et consulter la **météo**.
+
+## Architecture
+
+```mermaid
+flowchart TB
+    U["index.html<br/>onglets · Calendrier · Météo · Activités"]
+    APP["js/app.js<br/>contrôleur principal · routage onglets"]
+    CAL["js/calendar.js<br/>rendu grille mensuelle"]
+    STO["js/storage.js<br/>persistance localStorage · événements"]
+    ICS["js/ics.js<br/>export iCalendar .ics"]
+    LOC["js/location.js<br/>géolocalisation · ville la plus proche"]
+    WEA["js/weather.js<br/>Open-Meteo · météo 7 jours"]
+    ACT["js/activities.js<br/>Overpass API · points d'intérêt"]
+    SW["sw.js<br/>service worker · cache hors-ligne"]
+    EXT["APIs externes<br/>Open-Meteo · BigDataCloud · Overpass"]
+
+    U --> APP
+    APP --> CAL
+    APP --> STO
+    APP --> ICS
+    APP --> LOC
+    LOC --> WEA
+    LOC --> ACT
+    WEA --> EXT
+    ACT --> EXT
+    LOC --> EXT
+    U --> SW
+```
 
 ## Fonctionnalités
 
