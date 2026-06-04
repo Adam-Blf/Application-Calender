@@ -92,3 +92,14 @@ icons/                  Icônes de l'application
 Vos événements ne quittent jamais votre appareil : ils sont stockés dans le
 `localStorage` du navigateur. Votre position n'est utilisée que pour interroger
 les services météo/activités et n'est pas conservée.
+
+
+## Star History
+
+<a href="https://www.star-history.com/?repos=Adam-Blf%2FApplication-Calender&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=Adam-Blf/Application-Calender&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=Adam-Blf/Application-Calender&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=Adam-Blf/Application-Calender&type=date&legend=top-left" />
+ </picture>
+</a>
