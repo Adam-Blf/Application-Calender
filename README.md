@@ -1,4 +1,4 @@
-# 📅 Mon Calendrier · PWA
+# 📅 Mon Calendrier - PWA
 
 <!-- adam-badges:start -->
 [![commits](https://img.shields.io/github/commit-activity/t/Adam-Blf/Application-Calender?color=001329&label=commits&style=flat-square)](https://github.com/Adam-Blf/Application-Calender/commits)
@@ -15,16 +15,16 @@ Application web progressive (PWA) pour **enregistrer vos dates**, découvrir des
 
 ```mermaid
 flowchart TB
-    U["index.html<br/>onglets · Calendrier · Météo · Activités"]
-    APP["js/app.js<br/>contrôleur principal · routage onglets"]
+    U["index.html<br/>onglets - Calendrier - Météo - Activités"]
+    APP["js/app.js<br/>contrôleur principal - routage onglets"]
     CAL["js/calendar.js<br/>rendu grille mensuelle"]
-    STO["js/storage.js<br/>persistance localStorage · événements"]
+    STO["js/storage.js<br/>persistance localStorage - événements"]
     ICS["js/ics.js<br/>export iCalendar .ics"]
-    LOC["js/location.js<br/>géolocalisation · ville la plus proche"]
-    WEA["js/weather.js<br/>Open-Meteo · météo 7 jours"]
-    ACT["js/activities.js<br/>Overpass API · points d'intérêt"]
-    SW["sw.js<br/>service worker · cache hors-ligne"]
-    EXT["APIs externes<br/>Open-Meteo · BigDataCloud · Overpass"]
+    LOC["js/location.js<br/>géolocalisation - ville la plus proche"]
+    WEA["js/weather.js<br/>Open-Meteo - météo 7 jours"]
+    ACT["js/activities.js<br/>Overpass API - points d'intérêt"]
+    SW["sw.js<br/>service worker - cache hors-ligne"]
+    EXT["APIs externes<br/>Open-Meteo - BigDataCloud - Overpass"]
 
     U --> APP
     APP --> CAL
@@ -52,7 +52,7 @@ flowchart TB
 
 - **Météo & géocodage** : [Open-Meteo](https://open-meteo.com/)
 - **Reverse geocoding** : [BigDataCloud](https://www.bigdatacloud.com/)
-- **Activités / points d'intérêt** : [Overpass API — OpenStreetMap](https://overpass-api.de/)
+- **Activités / points d'intérêt** : [Overpass API - OpenStreetMap](https://overpass-api.de/)
 
 ## Lancer l'application
 
